@@ -2,15 +2,15 @@
 // ----------------------------------------------------
 router.route('/devfest')
 
-	// create a bear (accessed at POST http://localhost:8080/devfest)
+	// create a attendee (accessed at POST http://localhost:8080/devfest)
 	.post(function(req, res) {
 		
-		var attendee = new Attendee();		// create a new instance of the Bear model
-		attendee.name = req.body.name;  // set the bears name (comes from the request)
+		var attendee = new Attendees();		// create a new instance of the attendee model
+		attendee.name = req.body.name;  // set the attendees name (comes from the request)
         attendee.chapter = req.body.chapter;
         attendee.email = req.body.email;
 
-		bear.save(function(err) {
+		attendee.save(function(err) {
 			if (err)
 				res.send(err);
 
@@ -30,14 +30,14 @@ router.route('/devfest')
 
 // on routes that end in /devfest/:_id
 // ----------------------------------------------------
-router.route('/devfest/:_id')
+router.route('/devfest/:att_id')
 
 	// get the ticket with that id
 	.get(function(req, res) {
-		Attendees.findById(req.params._id, function(err, bear) {
+		Attendees.findById(req.params.att_id, function(err, attendee) {
 			if (err)
 				res.send(err);
-			res.json(bear);
+			res.json(attendee);
 		});
 	})
 

@@ -7,7 +7,7 @@ mongoose.connect('mongodb://localhost/codelab', { useNewUrlParser: true });
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.set('view engine', 'ejs')
-// Bear models lives here
+// attendee models lives here
 var Attendees     = require('./attendees.js');
 
 // ROUTES FOR OUR API
@@ -29,6 +29,7 @@ router.get('/', function(req, res) {
 });
 
 // everything goes here
+
 
 //ends here
 
